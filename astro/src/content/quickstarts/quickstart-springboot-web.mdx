@@ -16,6 +16,7 @@ import LoginAfter from '../../diagrams/quickstarts/login-after.astro';
 import LoginBefore from '../../diagrams/quickstarts/login-before.astro';
 import {RemoteCode} from '@fusionauth/astro-components';
 import SpringBootPreReqs from '../../components/quickstarts/springboot-prereqs.mdx';
+import Field from '../../components/Field.astro';
 
 
 In this quickstart, you will build a Spring Boot web application and integrate it with FusionAuth. The application is for [ChangeBank](https://www.youtube.com/watch?v=pkH-kD73QUM), a global leader in converting dollars into coins. It will have areas reserved for logged in users and public-facing sections. It uses Spring Boot web and Thymeleaf, and sets up an OAuth authorization code grant flow, allowing users to log in to the application.
@@ -106,21 +107,21 @@ Then view the application at the following URL http://localhost:8080.
 
 Go to the Spring Initializr site at https://start.spring.io/ and download your own starter package. Choose the following options.
 
-* Project - `Mavern`
-* Language - `Java`
-* Spring Boot Version - `2.7.16`
-* Project Metadata
-    * Group - `io.fusionauth.quickstart`
-    * Artifact - `springweb`
-    * Package Name - `io.fusionauth.quickstart.springweb`
-    * Packaging - `Jar`
-    * Java Version - `17`
+- <Field label="Project"/>: `Mavern`
+- <Field label="Language"/>: `Java`
+- <Field label="Spring Boot Version"/>: `2.7.16`
+- Project Metadata
+  - <Field label="Group"/>`io.fusionauth.quickstart`
+  - <Field label="Artifact"/>`springweb`
+  - <Field label="Package Name"/>`io.fusionauth.quickstart.springweb`
+  - <Field label="Packaging"/>`Jar`
+  - <Field label="Java Version"/>`17`
 
 This project has the following three dependencies which you will need to add by clicking the <InlineUIElement>Add Dependencies</InlineUIElement> button and searching for each dependency, when creating the package on the Initializr site.
 
-- OAuth2 Client
-- Thymeleaf
-- Spring Web
+- <Field label="Dependencies"/>`OAuth2 Client`
+- <Field label="Dependencies"/>`Thymeleaf`
+- <Field label="Dependencies"/>`Spring Web`
 
 If you choose different options, the configuration and code may be different. After entering the configuration settings above and adding the dependencies you can click the <InlineUIElement>Generate</InlineUIElement> button to download your starter package.
 
