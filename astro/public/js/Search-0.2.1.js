@@ -177,6 +177,13 @@ class Search {
       await this.#pagefind.filters();
     }
 
+    // Prod search capture
+    if (undefined !== ga) {
+      const searchValue = this.#searchInput.value;
+      console.log('sending search params to google')
+      ga('send', 'event', 'Search', 'search_query', { search_parameters: searchValue });
+    }
+
     let results;
     switch(environment) {
       case 'docs':
