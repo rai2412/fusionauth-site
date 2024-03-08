@@ -54,3 +54,5 @@ astro/.astro
 # Local .terraform directories
 **/.terraform/*
 **/terraform/builds/*
+
+src/screenshots/playwright/.auth
