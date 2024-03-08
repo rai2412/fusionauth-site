@@ -5,18 +5,14 @@ npm install
 npx playwright install webkit
 ```
 
+Make sure you have FusionAuth running at local.fusionauth.io
+
 # Capturing Screenshots
 
 Capture all of them
 
 ```
 npx playwright test --project webkit 
-```
-
-Capture one page
-
-```
-npx playwright test --project webkit tests/core-concepts/application.spec.ts
 ```
 
 Capture all core concepts
