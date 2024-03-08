@@ -1,0 +1,26 @@
+# Install
+
+```
+npm install
+npx playwright install webkit
+```
+
+# Capturing Screenshots
+
+Capture all of them
+
+```
+npx playwright test --project webkit 
+```
+
+Capture one page
+
+```
+npx playwright test --project webkit tests/core-concepts/application.spec.ts
+```
+
+Capture all core concepts
+
+```
+npx playwright test --project webkit tests/core-concepts/
+```
