@@ -67,5 +67,5 @@ test('coreconceptappliationdevicegrant', async ({ page }) => {
     //await page.screenshot({ path: 'screenshot-device-grant.png', style: css });
     //await page.screenshot({ path: 'screenshot-device-grant.png', style: css });
     //await page.screenshot({ path: 'screenshot-device-grant.png', style: css });
-    await page.screenshot({ animations: 'disabled' ,path: 'screenshot-device-grant.png', style: css, clip: {x: 0,y: 400, width:1280, height:200} });
+    await page.screenshot({ animations: 'disabled', path: '../../astro/public/img/docs/get-started/core-concepts/application-oauth-device-url.png', style: css, clip: {x: 0,y: 400, width:1280, height:200} });
 });
