@@ -52,7 +52,6 @@ test('core-concepts-applications-edit-jwt', async ({ page }) => {
     });
     await page.screenshot({ animations: 'disabled', path: baseImagePath+'get-started/core-concepts/application-jwt-disabled.png'});
 
-
     // enable it, take another screenshot
     var cb = await page.locator('#application_jwtConfiguration_enabled');
     cb.check();
@@ -65,14 +64,31 @@ test('core-concepts-applications-edit-jwt', async ({ page }) => {
   
 });
 
-test('core-concepts-applications-edit-email', async ({ page }) => {
-
+test('core-concepts-applications-edit-email', async ({ playwright}) => {
+  const browser = await playwright.webkit.launch();  
+  // Create a new browser context.
+  // want a huge viewport otherwise our nav gets all screwy (can't use fullPage: true)
+  const context = await browser.newContext({viewport: {height: 7000, width: 1280}});
+  // Create a new page in a pristine context.
+  const page2 = await context.newPage();
     // need to wait until page loads
-    await page.goto(baseAdminURL+'/application/edit?applicationId=85a03867-dccf-4882-adde-1a79aeec50df&tenantId=30663132-6464-6665-3032-326466613934#email-settings', {
-      waitUntil: "networkidle"
-    });
-    await page.screenshot({ animations: 'disabled', path: baseImagePath+'get-started/core-concepts/application-email.png', fullPage: true });
+  await page2.goto(baseAdminURL+'/application/edit?applicationId=85a03867-dccf-4882-adde-1a79aeec50df&tenantId=30663132-6464-6665-3032-326466613934#email-settings', {
+    waitUntil: "networkidle"
+  });
+
+    // clip region from tabs down to email verification settings
+    const box = await page2.locator('main.page-body').boundingBox();
+    const bottomY = (box?.y + box?.height )|| 1200;
+
+
+  await page2.screenshot({ animations: 'disabled', path: baseImagePath+'get-started/core-concepts/application-email.png',
+ clip:  {height: bottomY, width: 1280, x: 0, y: 0 }
+ });
   
+  // Gracefully close up everything
+  await context.close();
+  await browser.close();
+
 });
 
 test('core-concepts-applications-edit-oauth', async ({ page }) => {
