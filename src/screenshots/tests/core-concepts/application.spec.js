@@ -42,13 +42,15 @@ test('core-concepts-applications-edit-cleanspeak', async ({ page }) => {
   
 });
 
-test('core-concepts-applications-edit-jwt-disabled', async ({ page }) => {
+test('core-concepts-applications-edit-jwt', async ({ page }) => {
 
     // need to wait until page loads
     await page.goto(baseAdminURL+'/application/edit?applicationId=85a03867-dccf-4882-adde-1a79aeec50df&tenantId=30663132-6464-6665-3032-326466613934#jwt-settings', {
       waitUntil: "networkidle"
     });
     await page.screenshot({ animations: 'disabled', path: baseImagePath+'get-started/core-concepts/application-jwt-disabled.png'});
+
+  
   
 });
 
