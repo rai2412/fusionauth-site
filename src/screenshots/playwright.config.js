@@ -39,6 +39,12 @@ module.exports = defineConfig({
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'],
+
+// want a huge viewport otherwise our nav gets all screwy (can't use fullPage: true)
+        viewport: {
+          width: 1280,
+          height: 7000,
+        },
         // Use prepared auth state.
         storageState: 'playwright/.auth/user.json',
       },
