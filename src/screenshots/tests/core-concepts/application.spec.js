@@ -3,6 +3,8 @@ import { test, expect } from '@playwright/test';
 const baseAdminURL = 'https://local.fusionauth.io/admin/';
 const baseImagePath = '../../astro/public/img/docs/';
 const browserWidth = 1280;
+const outlineCSS = '{ padding: 10px; border: 3px red solid; } ';
+
 
 test('core-concepts-applications-device-grant', async ({ page }) => {
 
@@ -50,6 +52,15 @@ test('core-concepts-applications-edit-jwt', async ({ page }) => {
     });
     await page.screenshot({ animations: 'disabled', path: baseImagePath+'get-started/core-concepts/application-jwt-disabled.png'});
 
+
+    // enable it, take another screenshot
+    var cb = await page.locator('#application_jwtConfiguration_enabled');
+    cb.check();
+    await expect(cb).toBeChecked();
+
+    var css = ' #application_jwtConfiguration_enabled-form-row '+ outlineCSS;
+
+    await page.screenshot({ animations: 'disabled', path: baseImagePath+'get-started/core-concepts/application-jwt-enabled-configuration.png', style: css});
   
   
 });
